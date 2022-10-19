@@ -1,19 +1,70 @@
-import React from 'react';
+import React from 'react'
 
-import { Button } from './Button';
-import './header.css';
+import { Button } from './Button'
+import './header.css'
 
 type User = {
   name: string;
 };
 
 interface HeaderProps {
+  /**
+   * User object
+   *
+   * ```tsx
+   * const user = getUserObject();
+   * …
+   * <Header user={user} />
+   * ```
+   */
   user?: User;
+
+  /**
+   * Called when the login button is clicked
+   *
+   * ```tsx
+   * <Header onLogin={() => console.log('Login button clicked!)} />
+   * ```
+   */
   onLogin: () => void;
+
+  /**
+   * Called when the logout button is clicked
+   *
+   * ```tsx
+   * <Header
+  *    onLogout={() => {
+  *      console.log('Logout button clicked!)
+  *    }}
+  *  />
+   * ```
+   */
   onLogout: () => void;
+
+  /**
+   * Called when the create account button is clicked
+   *
+   * ```tsx
+   * <Header
+   *   onCreateAccount={() => {
+   *     console.log('create account button clicked!)
+   *   }}
+   * />
+   * ```
+   */
   onCreateAccount: () => void;
 }
 
+/**
+ * Header Description. Also includes markdown code:
+ *
+ * ```tsx
+ * <Header
+ *   user={user}
+ *   onLogin={() => login()}
+ * />
+ * ```
+ */
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
   <header>
     <div className="wrapper">
